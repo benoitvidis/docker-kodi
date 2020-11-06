@@ -118,7 +118,7 @@ RUN  set -x \
   \
   && rm /home/me/alpine.patch \
   && rm -rf /home/me/kodi \
-  && rm -rf /home/me/kodi-build \
+  && sudo rm -rf /home/me/kodi-build \
   && sudo apk del deps \
   \
   && echo done
