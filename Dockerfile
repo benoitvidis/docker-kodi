@@ -96,7 +96,7 @@ RUN  set -x \
 	&& curl -sSLo libdvdnav.tar.gz https://github.com/xbmc/libdvdnav/archive/${LIBDVDNAV_VERSION}.tar.gz \
 	&& curl -sSLo crossguid.tar.gz https://mirrors.kodi.tv/build-deps/sources/crossguid-${CROSSGUID_VERSION}.tar.gz \
 	\
-  && make -C tools/depends/target/crossguid PREFIX=/usr/local \
+  && sudo make -C tools/depends/target/crossguid PREFIX=/usr/local \
   && mkdir ../kodi-build \
   && cd ../kodi-build \
 	&& cmake ../kodi \
