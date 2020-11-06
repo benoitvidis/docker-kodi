@@ -2,7 +2,7 @@ version: "3"
 
 services:
   kodi:
-    build: .
+    image: vidiben/kodi
     environment:
       DISPLAY: "unix${DISPLAY:-:0}"
     ipc: host

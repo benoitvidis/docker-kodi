@@ -1,5 +1,8 @@
 FROM vidiben/rootless_x_intel
 
+# The build is heavily inspired by Alpine's package
+# @see https://git.alpinelinux.org/aports/tree/community/kodi/APKBUILD
+
 LABEL fr.ben0.maintainer="Benoît Vidis"
 
 ARG KODI_VERSION=18.9-Leia
@@ -111,9 +114,15 @@ RUN  set -x \
 			-Dlibdvdnav_URL=../kodi/libdvdnav.tar.gz \
 			-DCROSSGUID_URL=../kodi/crossguid.tar.gz \
 	&& make \
-	&& make preinstall \
+	&& sudo make install \
+	\
+	&& rm /home/me/alpine.patch \
+	&& rm -rf /home/me/kodi \
+	&& rm -rf /home/me/kodi-build \
+	&& sudo apk del deps \
 	\
 	&& echo done
 
+VOLUME /home/me/.config/kodi
+
 CMD [ "kodi" ]
-    
