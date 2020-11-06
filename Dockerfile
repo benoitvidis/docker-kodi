@@ -19,39 +19,39 @@ RUN  set -x \
       autoconf \
       automake \
       avahi-dev \
-			bluez-dev \
+      bluez-dev \
       build-base \
       ccache \
       cmake \
       coreutils \
       curl-dev \
-			dbus-dev \
-			doxygen \
-			eudev-dev \
-			ffmpeg-dev \
-			flatbuffers-dev \
-			fmt-dev \
-			freetype-dev \
-			fribidi-dev \
+      dbus-dev \
+      doxygen \
+      eudev-dev \
+      ffmpeg-dev \
+      flatbuffers-dev \
+      fmt-dev \
+      freetype-dev \
+      fribidi-dev \
       fstrcmp-dev \
       giflib-dev \
       git \
       glu-dev \
-			graphviz \
+      graphviz \
       jpeg-dev \
       lcms2-dev \
       libass-dev \
       libbluray-dev \
-			libcap-dev \
+      libcap-dev \
       libcdio-dev \
       libcec-dev \
-			libdvdcss-dev \
-			libinput-dev \
-			libjpeg-turbo-dev \
+      libdvdcss-dev \
+      libinput-dev \
+      libjpeg-turbo-dev \
       libplist-dev \
       libmicrohttpd-dev \
       libnfs-dev \
-			libshairport-dev \
+      libshairport-dev \
       libtool \
       libva-dev \
       libva-glx-dev \
@@ -59,11 +59,11 @@ RUN  set -x \
       libvdpau-dev \
       libxslt-dev \
       lzo-dev \
-			mariadb-connector-c-dev \
-			mesa-dev \
+      mariadb-connector-c-dev \
+      mesa-dev \
       openjdk8-jre-base \
-			openssl-dev \
-			pcre-dev \
+      openssl-dev \
+      pcre-dev \
       pugixml-dev \
       pulseaudio-dev \
       python2-dev \
@@ -75,53 +75,53 @@ RUN  set -x \
       tar \
       tinyxml-dev \
       util-linux-dev \
-			xz \
+      xz \
       yasm \
-			zlib-dev \
+      zlib-dev \
   && sudo apk add --no-cache \
-			bash \
-			curl \
-			hicolor-icon-theme \
-			py-bluez \
-			py-pillow \
-			py-simplejson \
-			python2 \
-			xdpyinfo \
+      bash \
+      curl \
+      hicolor-icon-theme \
+      py-bluez \
+      py-pillow \
+      py-simplejson \
+      python2 \
+      xdpyinfo \
   \
   && git clone -b ${KODI_VERSION} https://github.com/xbmc/xbmc kodi \
   && cd kodi \
-	&& patch -p1 < /home/me/alpine.patch \
-	&& curl -sSLo libdvdcss.tar.gz https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz \
-	&& curl -sSLo libdvdread.tar.gz https://github.com/xbmc/libdvdread/archive/${LIBDVDREAD_VERSION}.tar.gz \
-	&& curl -sSLo libdvdnav.tar.gz https://github.com/xbmc/libdvdnav/archive/${LIBDVDNAV_VERSION}.tar.gz \
-	&& curl -sSLo crossguid.tar.gz https://mirrors.kodi.tv/build-deps/sources/crossguid-${CROSSGUID_VERSION}.tar.gz \
-	\
+  && patch -p1 < /home/me/alpine.patch \
+  && curl -sSLo libdvdcss.tar.gz https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz \
+  && curl -sSLo libdvdread.tar.gz https://github.com/xbmc/libdvdread/archive/${LIBDVDREAD_VERSION}.tar.gz \
+  && curl -sSLo libdvdnav.tar.gz https://github.com/xbmc/libdvdnav/archive/${LIBDVDNAV_VERSION}.tar.gz \
+  && curl -sSLo crossguid.tar.gz https://mirrors.kodi.tv/build-deps/sources/crossguid-${CROSSGUID_VERSION}.tar.gz \
+  \
   && sudo make -C tools/depends/target/crossguid PREFIX=/usr/local \
   && mkdir ../kodi-build \
   && cd ../kodi-build \
-	&& cmake ../kodi \
-			-DCMAKE_BUILD_TYPE=None \
-			-DCMAKE_INSTALL_PREFIX=/usr/local \
-			-DCMAKE_INSTALL_LIBDIR=lib \
-			-DENABLE_INTERNAL_CROSSGUID=ON \
-			-DENABLE_INTERNAL_FFMPEG=OFF \
-			-DENABLE_INTERNAL_RapidJSON=OFF \
-			-DENABLE_INTERNAL_FMT=OFF \
-			-DENABLE_INTERNAL_FSTRCMP=OFF \
-			-DENABLE_INTERNAL_FLATBUFFERS=OFF \
-			-Dlibdvdcss_URL=../kodi/libdvdcss.tar.gz \
-			-Dlibdvdread_URL=../kodi/libdvdread.tar.gz \
-			-Dlibdvdnav_URL=../kodi/libdvdnav.tar.gz \
-			-DCROSSGUID_URL=../kodi/crossguid.tar.gz \
-	&& make \
-	&& sudo make install \
-	\
-	&& rm /home/me/alpine.patch \
-	&& rm -rf /home/me/kodi \
-	&& rm -rf /home/me/kodi-build \
-	&& sudo apk del deps \
-	\
-	&& echo done
+  && cmake ../kodi \
+      -DCMAKE_BUILD_TYPE=None \
+      -DCMAKE_INSTALL_PREFIX=/usr/local \
+      -DCMAKE_INSTALL_LIBDIR=lib \
+      -DENABLE_INTERNAL_CROSSGUID=ON \
+      -DENABLE_INTERNAL_FFMPEG=OFF \
+      -DENABLE_INTERNAL_RapidJSON=OFF \
+      -DENABLE_INTERNAL_FMT=OFF \
+      -DENABLE_INTERNAL_FSTRCMP=OFF \
+      -DENABLE_INTERNAL_FLATBUFFERS=OFF \
+      -Dlibdvdcss_URL=../kodi/libdvdcss.tar.gz \
+      -Dlibdvdread_URL=../kodi/libdvdread.tar.gz \
+      -Dlibdvdnav_URL=../kodi/libdvdnav.tar.gz \
+      -DCROSSGUID_URL=../kodi/crossguid.tar.gz \
+  && make \
+  && sudo make install \
+  \
+  && rm /home/me/alpine.patch \
+  && rm -rf /home/me/kodi \
+  && rm -rf /home/me/kodi-build \
+  && sudo apk del deps \
+  \
+  && echo done
 
 VOLUME /home/me/.kodi
 
