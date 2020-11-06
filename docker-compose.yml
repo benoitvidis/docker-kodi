@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  kodi:
+    build: .
+    environment:
+      DISPLAY: "unix${DISPLAY:-:0}"
+    ipc: host
+    user: ${UID:-1000}:${GID:-1000}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/home/me/.Xauthority
