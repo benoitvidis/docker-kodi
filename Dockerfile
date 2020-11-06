@@ -123,6 +123,6 @@ RUN  set -x \
 	\
 	&& echo done
 
-VOLUME /home/me/.config/kodi
+VOLUME /home/me/.kodi
 
 CMD [ "kodi" ]
