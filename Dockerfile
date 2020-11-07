@@ -117,7 +117,7 @@ RUN  set -x \
   && sudo make install \
   \
   && rm /home/me/alpine.patch \
-  && rm -rf /home/me/kodi \
+  && sudo rm -rf /home/me/kodi \
   && sudo rm -rf /home/me/kodi-build \
   && sudo apk del deps \
   \
