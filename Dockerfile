@@ -1,4 +1,4 @@
-FROM vidiben/rootless_x_intel
+FROM vidiben/rootless_x_intel:alpine-3.12
 
 # The build is heavily inspired by Alpine's package
 # @see https://git.alpinelinux.org/aports/tree/community/kodi/APKBUILD
