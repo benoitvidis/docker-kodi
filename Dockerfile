@@ -79,13 +79,36 @@ RUN  set -x \
       yasm \
       zlib-dev \
   && sudo apk add --no-cache \
+      avahi \
       bash \
       curl \
+      eudev-libs \
+      ffmpeg-libs \
+      fmt \
+      fstrcmp \
       hicolor-icon-theme \
+      libass \
+      libbluray \
+      libcdio \
+      libcec \
+      libmicrohttpd \
+      libnfs \
+      libpcrecpp \
+      libsmbclient \
+      libva \
+      libxslt \
+      lzo \
+      mariadb-connector-c \
+      mesa-egl \
+      mesa-gl \
+      pcre \
       py-bluez \
       py-pillow \
       py-simplejson \
       python2 \
+      sndio-libs \
+      taglib \
+      tinyxml \
       xdpyinfo \
   \
   && git clone -b ${KODI_VERSION} https://github.com/xbmc/xbmc kodi \
