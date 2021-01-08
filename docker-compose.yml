@@ -5,9 +5,12 @@ services:
     image: vidiben/kodi
     devices:
       - /dev/dri
+      - /dev/snd
     environment:
       DISPLAY: "unix${DISPLAY:-:0}"
+      LIBVA_DRIVER_NAME: i965
       XAUTHORITY: /home/me/.Xauthority
+      VDPAU_DRIVER: va_gl
     ipc: host
     user: ${UID:-1000}:${GID:-1000}
     volumes:

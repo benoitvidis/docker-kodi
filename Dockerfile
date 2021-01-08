@@ -148,7 +148,11 @@ RUN  set -x \
 
 VOLUME /home/me/.kodi
 
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+# running as non-root crashes 
+# @todo: fix it when possible
+#
+# COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+# ENTRYPOINT [ "docker-entrypoint.sh" ]
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+ENTRYPOINT [ "sudo" ]
 CMD [ "kodi" ]
