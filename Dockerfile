@@ -147,6 +147,7 @@ RUN  set -x \
   && echo done
 
 VOLUME /home/me/.kodi
+VOLUME /root/.kodi
 
 # running as non-root crashes 
 # @todo: fix it when possible
