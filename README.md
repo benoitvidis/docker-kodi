@@ -1,6 +1,6 @@
 # Kodi 
 
-Kodi 18.9 Leia for X server with intel drivers.
+Kodi 19 Matrix for X server with intel drivers.
 
 You can run it using [x11docker](https://github.com/mviereck/x11docker) (preferred)
 or if you don't mind about sharing memory with your host, by using the 
