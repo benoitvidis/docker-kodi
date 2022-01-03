@@ -12,7 +12,6 @@ services:
       XAUTHORITY: /home/me/.Xauthority
       VDPAU_DRIVER: va_gl
     ipc: host
-    user: ${UID:-1000}:${GID:-1000}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/home/me/.Xauthority
