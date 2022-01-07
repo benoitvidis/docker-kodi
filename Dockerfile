@@ -22,6 +22,8 @@ RUN  set -x \
   && apt-get autoremove -y --purge \
   && rm -rf /var/lib/apt/lists/*
 
+COPY pulse-client.conf /etc/pulse/client.conf
+
 VOLUME /root/.kodi
 
 ENTRYPOINT [ "kodi" ]
