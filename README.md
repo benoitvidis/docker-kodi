@@ -18,6 +18,6 @@ version: "3"
 services:
   kodi:
     volumes:
-      - ./data:/root/.kodi
+      - ./data:/home/kodi/.kodi
       - /run/user/${UID:-1000}/pulse:/tmp/pulse    
 ```
