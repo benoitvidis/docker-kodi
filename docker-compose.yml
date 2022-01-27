@@ -16,3 +16,5 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - $HOME/.Xauthority:/home/me/.Xauthority
       - /:/host:ro
+# uncomment and adjust to your user id to use pulseaudio rather than ALSA
+#     - /run/user/1000/pulse:/tmp/pulse

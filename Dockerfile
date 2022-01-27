@@ -17,13 +17,18 @@ RUN  set -x \
     tzdata \
     va-driver-all \
   \
-  && mkdir -p /root/.kodi \
+  && groupadd -g 1000 kodi \
+  && useradd -g 1000 -m -u 1000 kodi \
+  && mkdir /home/kodi/.kodi \
+  && chown -R kodi:kodi /home/kodi \
   \
   && apt-get autoremove -y --purge \
   && rm -rf /var/lib/apt/lists/*
 
 COPY pulse-client.conf /etc/pulse/client.conf
 
-VOLUME /root/.kodi
+USER kodi:kodi
+
+VOLUME /home/kodi/.kodi
 
 ENTRYPOINT [ "kodi" ]
