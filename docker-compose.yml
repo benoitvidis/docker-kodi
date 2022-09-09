@@ -8,9 +8,10 @@ services:
       - /dev/snd
     environment:
       DISPLAY: "unix${DISPLAY:-:0}"
-      LIBVA_DRIVER_NAME: i965
+      # LIBVA_DRIVER_NAME: i965
+      # LIBVA_DRIVER_NAME: radeonsi
       XAUTHORITY: /home/me/.Xauthority
-      VDPAU_DRIVER: va_gl
+      # VDPAU_DRIVER: radeonsi
     ipc: host
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
