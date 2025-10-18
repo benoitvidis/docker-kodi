@@ -1,3 +1,6 @@
+> [!WARNING]  
+> This repository is not maintained anymore.
+
 # Kodi 
 
 Kodi 19 Matrix for X server with intel drivers.
